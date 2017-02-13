@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
-		<ListView fx:id="listview" layoutX="46.0" layoutY="31.0" onMouseReleased="#select" prefHeight="312.0" prefWidth="400.0" />
+		<ListView fx:id="listview" layoutX="46.0" layoutY="31.0" prefHeight="312.0" prefWidth="400.0" />
 		<TextField fx:id="addname" layoutX="46.0" layoutY="355.0" prefHeight="25.0" prefWidth="100.0" text="Name" />
 		<TextField fx:id="addartist" layoutX="156.0" layoutY="355.0" prefHeight="25.0" prefWidth="100.0" text="Artist" />
 		<TextField fx:id="addalbum" layoutX="266.0" layoutY="355.0" prefHeight="25.0" prefWidth="100.0" text="Album" />
