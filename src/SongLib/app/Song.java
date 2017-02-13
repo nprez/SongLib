@@ -16,4 +16,8 @@ public class Song{
 		this.album=album;
 		this.year=year;
 	}
+	
+	public String toString(){
+		return name;
+	}
 }

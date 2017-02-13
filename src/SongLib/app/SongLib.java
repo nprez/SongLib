@@ -16,13 +16,21 @@ public class SongLib extends Application{
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/SongLib/view/SongLib.fxml"));
 //		loader.setController("/SongLib/view/SongLibController.java");
-		loader.setController(new SongLibController());
+		SongLibController slc = new SongLibController();
+		Song[] testarr = new Song[3];
+		testarr[0] = new Song("allstar", "smashmouth");
+		testarr[1] = new Song("ocean man", "spongebob");
+		testarr[2] = new Song("scatman", "scatman john");
+		loader.setController(slc);
 		AnchorPane root = (AnchorPane)loader.load();
 		
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("SongLib");
-		primaryStage.setResizable(false);  
+		primaryStage.setResizable(false);
+		
+		slc.load(testarr);
+		
 		primaryStage.show();
 	}
 	
