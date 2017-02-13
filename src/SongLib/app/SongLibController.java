@@ -1,3 +1,6 @@
+//Nick Prezioso
+//Tim Gassaway
+
 package SongLib.app;
 
 import javafx.event.ActionEvent;
