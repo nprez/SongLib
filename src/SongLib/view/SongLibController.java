@@ -56,14 +56,17 @@ public class SongLibController {
 		else{
 			ObservableList<Song> ol = FXCollections.observableArrayList();
 			ol.addAll(listview.getItems());
-			String album = addalbum.getText().compareTo("")==0?"?":addalbum.getText();
-			String year = addyear.getText().compareTo("")==0?"?":addyear.getText();
-			ol.add(new Song(addname.getText(), addartist.getText(), album, year));
+			//String album = addalbum.getText().compareTo("")==0?"?":addalbum.getText();
+			//String year = addyear.getText().compareTo("")==0?"?":addyear.getText();
+			//Song newSong = new Song(addname.getText(), addartist.getText(), album, year);
+			Song newSong = new Song(addname.getText(), addartist.getText(), addalbum.getText(), addyear.getText());
+			ol.add(newSong);
 			addname.setText("");
 			addartist.setText("");
 			addalbum.setText("");
 			addyear.setText("");
 			listview.setItems(ol.sorted());
+			listview.getSelectionModel().select(newSong);
 		}
 	}
 	
@@ -79,14 +82,14 @@ public class SongLibController {
 			ol.addAll(listview.getItems());
 			int index = listview.getSelectionModel().getSelectedIndex();
 			ol.remove(index);
-			String album = editalbum.getText().compareTo("")==0?"?":editalbum.getText();
-			String year = edityear.getText().compareTo("")==0?"?":edityear.getText();
-			Song newSong = new Song(editname.getText(), editartist.getText(), album, year);
+			//String album = editalbum.getText().compareTo("")==0?"?":editalbum.getText();
+			//String year = edityear.getText().compareTo("")==0?"?":edityear.getText();
+			//Song newSong = new Song(editname.getText(), editartist.getText(), album, year);
+			Song newSong = new Song(editname.getText(), editartist.getText(), editalbum.getText(), edityear.getText());
 			ol.add(newSong);
 			listview.setItems(ol.sorted());
 			listview.getSelectionModel().select(newSong);
 		}
-		System.out.println("edited");
 	}
 	
 	public void delete(ActionEvent e){

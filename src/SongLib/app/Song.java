@@ -7,7 +7,7 @@ public class Song{
 	public String year;
 	
 	public Song(String name, String artist){
-		this(name, artist, "?", "?");
+		this(name, artist, "", "");
 	}
 	
 	public Song(String name, String artist, String album, String year){
