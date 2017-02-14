@@ -26,7 +26,7 @@ public class SongLibController {
 	@FXML TextField editartist;
 	@FXML TextField editalbum;
 	@FXML TextField edityear;
-	@FXML ListView<Song> listview;
+	@FXML public ListView<Song> listview;
 	
 	public void load(Song[] songs){
 		ObservableList<Song> songsOL = FXCollections.observableArrayList();
