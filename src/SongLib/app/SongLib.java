@@ -21,10 +21,11 @@ public class SongLib extends Application{
 	
 	public static File f;
 	public SongLibController slc;
+	public static Stage primaryStage;
 	
 	@Override
-	public void start(Stage primaryStage) throws Exception {
-		
+	public void start(Stage pStage) throws Exception {
+		primaryStage=pStage;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/SongLib/view/SongLib.fxml"));
 		slc = new SongLibController();
 		List<String> songstrs = Files.readAllLines(f.toPath());
