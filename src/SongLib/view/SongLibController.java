@@ -115,21 +115,35 @@ public class SongLibController {
 			popupError("Artist is required!");
 		}
 		else{
-			ObservableList<Song> ol = FXCollections.observableArrayList();
-			ol.addAll(listview.getItems());
-			boolean repeat = false;
-			for(int i=0; i<ol.size(); i++){
-				if(ol.get(i).name.equals(addname.getText()) && ol.get(i).artist.equals(addartist.getText())){
-					repeat = true;
-					break;
-				}
+			boolean properYear = true;
+			try{
+				Integer.parseInt(addyear.getText());
+			}catch(NumberFormatException E){
+				//error
+				if(addyear.getText().length()>0)
+					properYear = false;
 			}
-			if(!repeat){
-				popupConfirmation("add");
+			if(properYear){
+				ObservableList<Song> ol = FXCollections.observableArrayList();
+				ol.addAll(listview.getItems());
+				boolean repeat = false;
+				for(int i=0; i<ol.size(); i++){
+					if(ol.get(i).name.equals(addname.getText()) && ol.get(i).artist.equals(addartist.getText())){
+						repeat = true;
+						break;
+					}
+				}
+				if(!repeat){
+					popupConfirmation("add");
+				}
+				else{
+					//error
+					popupError(addname.getText()+" by "+addartist.getText()+" already exists!");
+				}
 			}
 			else{
 				//error
-				popupError(addname.getText()+" by "+addartist.getText()+" already exists!");
+				popupError("Year is invalid! Integer expected.");
 			}
 		}
 	}
@@ -157,23 +171,37 @@ public class SongLibController {
 			popupError("Artist is required!");
 		}
 		else{
-			ObservableList<Song> ol = FXCollections.observableArrayList();
-			ol.addAll(listview.getItems());
-			int index = listview.getSelectionModel().getSelectedIndex();
-			ol.remove(index);
-			boolean repeat = false;
-			for(int i=0; i<ol.size(); i++){
-				if(ol.get(i).name.equals(editname.getText()) && ol.get(i).artist.equals(editartist.getText())){
-					repeat = true;
-					break;
-				}
+			boolean properYear = true;
+			try{
+				Integer.parseInt(edityear.getText());
+			}catch(NumberFormatException E){
+				//error
+				if(edityear.getText().length()>0)
+					properYear = false;
 			}
-			if(!repeat){
-				popupConfirmation("edit");
+			if(properYear){
+				ObservableList<Song> ol = FXCollections.observableArrayList();
+				ol.addAll(listview.getItems());
+				int index = listview.getSelectionModel().getSelectedIndex();
+				ol.remove(index);
+				boolean repeat = false;
+				for(int i=0; i<ol.size(); i++){
+					if(ol.get(i).name.equals(editname.getText()) && ol.get(i).artist.equals(editartist.getText())){
+						repeat = true;
+						break;
+					}
+				}
+				if(!repeat){
+					popupConfirmation("edit");
+				}
+				else{
+					//error
+					popupError(editname.getText()+" by "+editartist.getText()+" already exists!");
+				}
 			}
 			else{
 				//error
-				popupError(editname.getText()+" by "+editartist.getText()+" already exists!");
+				popupError("Year is invalid! Integer expected.");
 			}
 		}
 	}
