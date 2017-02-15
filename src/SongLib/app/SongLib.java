@@ -1,5 +1,4 @@
-//Nick Prezioso
-//Tim Gassaway
+//Nick Prezioso, Tim Gassaway
 
 package SongLib.app;
 
